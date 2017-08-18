@@ -1,0 +1,4 @@
+export default {
+    SHOW_CONFIRM: "SHOW_CONFIRM",
+    HIDE_CONFIRM: "HIDE_CONFIRM"
+}
