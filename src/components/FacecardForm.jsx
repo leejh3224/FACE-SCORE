@@ -91,7 +91,7 @@ class FacecardForm extends Component {
                         />          
                         <figure className="image" style={{ width: 'auto', height: this.state.url ? 'auto' : 250 }}>
                             <img 
-                                src=""
+                                src={ this.props.url ? this.props.url : "" }
                                 ref={ img => this.img = img }
                                 style={{ paddingLeft: 15 }}
                                 alt="미리보기가 뜨지 않으면 사진이 표시되지 않을 수 있습니다."
