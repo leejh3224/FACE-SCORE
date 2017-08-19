@@ -14,6 +14,7 @@ import FacecardProfile from './FacecardProfile'
 import Toast from './Toast'
 import Confirm from './Confirm'
 import Modal from './Modal'
+import WelcomeModal from './WelcomeModal'
 
 import { icons, iconNames } from '../constants/icons'
 
@@ -56,6 +57,7 @@ class Page extends Component {
                     shortDescr={ this.props.facecards.data[qidOfCardEditing].shortDescr }
                   /> : <Confirm /> } /> : null 
           }
+          { this.props.auth.status === "AUTH_ANONYMOUS" ? <WelcomeModal /> : null } 
           <header className="nav mobile-no-padding">
             <Link 
               className="nav-left nav-item"

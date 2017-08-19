@@ -7,6 +7,7 @@ import {
     showDeleteConfirm,
     showEditModal
 } from '../actions/confirm'
+import { logoutUser } from '../actions/auth'
 import { startFacecardEdit } from '../actions/facecards'
 
 import '../Global.css'
@@ -179,9 +180,14 @@ class FacecardProfile extends Component {
         return (
             <div>
                 <div className="column is-8 is-offset-2">
-                    <div className="box">
+                    <div className="box" style={{ position: 'relative' }}>
                         <h1>{ this.props.auth.username ? 
                                 this.props.auth.username + " 님의 카드" : "먼저 로그인해주세요." }</h1>
+                        <Icon
+                            style={{ bottom: 13, right: 0 }}
+                            label={'ellipsis-v'} 
+                            onClick={ this.props.logoutUser }
+                        />
                     </div>
                     <hr />
                     <div className="box">
@@ -243,7 +249,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = { 
     showDeleteConfirm,
     showEditModal,
-    startFacecardEdit 
+    startFacecardEdit,
+    logoutUser
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(FacecardProfile)
