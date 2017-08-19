@@ -27,7 +27,9 @@ const Auth = props => {
               width: 120,
               backgroundColor: '#6d2cf9'
             }}
-          ></a>
+          >
+          LOADING
+          </a>
         </p>
       );
     default:
