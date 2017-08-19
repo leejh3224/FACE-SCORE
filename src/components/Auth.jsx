@@ -21,7 +21,13 @@ const Auth = props => {
             alignContent: 'center'
           }}
         >
-          <button disabled>authenticating...</button>
+          <a 
+            className="button is-loading"
+            style={{
+              width: 120,
+              backgroundColor: '#6d2cf9'
+            }}
+          ></a>
         </p>
       );
     default:

@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
 import Auth from './Auth'
+
+import { listenToFacecards } from '../actions/facecards'
+import { listenToUserscores } from '../actions/userscores'
 
 import { 
     img_person,
@@ -8,6 +12,12 @@ import {
 } from '../images'
 
 class WelcomeModal extends Component {
+
+    componentWillUnmount () {
+        this.props.listenToFacecards()
+        this.props.listenToUserscores()
+    }
+
     render () {
         return (
             <div className="modal is-active">
@@ -107,4 +117,9 @@ class WelcomeModal extends Component {
     }
 }
 
-export default WelcomeModal
+const mapDispatchToProps = ({
+    listenToFacecards,
+    listenToUserscores
+})
+
+export default connect(null, mapDispatchToProps)(WelcomeModal)
