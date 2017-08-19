@@ -70,7 +70,7 @@ class FacecardForm extends Component {
             this.props.auth.uid ?
             <div>
                 <div 
-                    className="card column is-8 is-offset-2"
+                    className="card column is-6 is-offset-3"
                     style={{
                         marginTop: "10px",
                         marginBottom: "10px"
