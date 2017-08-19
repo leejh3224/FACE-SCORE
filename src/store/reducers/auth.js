@@ -11,7 +11,7 @@ export default (state, action) => {
     case C.AUTH_OPEN:
       return {
         status: C.AUTH_AWAITING_RESPONSE,
-        username: "guest",
+        username: null,
         uid: null
       };
     case C.AUTH_LOGIN:

@@ -9,19 +9,30 @@ const Auth = props => {
     case C.AUTH_LOGGED_IN:
       return (
         <p>
-          <span>{props.auth.username} 님 환영홥니다.</span>
-          {" "}<button onClick={props.logoutUser}>Log out</button>
+          <button onClick={props.logoutUser}>Log out</button>
         </p>
       );
     case C.AUTH_AWAITING_RESPONSE:
       return (
-        <p>
+        <p
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignContent: 'center'
+          }}
+        >
           <button disabled>authenticating...</button>
         </p>
       );
     default:
       return (
-        <div>
+        <div 
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignContent: 'center'
+          }}
+        >
             <a 
               className="button is-info"
               onClick={props.openAuth}

@@ -33,7 +33,7 @@ class FacecardForm extends Component {
         if (!this.props.facecards.submittingNew) {
             if (this.url.value) {
                 let data = {
-                    url: this.state.url,
+                    url: this.url.value,
                     shortDescr: this.textarea.value
                 }
                 this.props.submitFacecard(data);
@@ -118,7 +118,7 @@ class FacecardForm extends Component {
                                         this.submitEditedCard(e, 
                                         { 
                                             qid: qidOfCardEditing, 
-                                            url: this.state.url, 
+                                            url: this.url.value, 
                                             shortDescr: this.textarea.value 
                                         }) : this.submitNewCard(e) 
                                 }}

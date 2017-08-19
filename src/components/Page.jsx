@@ -14,6 +14,7 @@ import FacecardProfile from './FacecardProfile'
 import Toast from './Toast'
 import Confirm from './Confirm'
 import Modal from './Modal'
+import WelcomeModal from './WelcomeModal'
 
 import { icons, iconNames } from '../constants/icons'
 
@@ -55,7 +56,8 @@ class Page extends Component {
                     url={ this.props.facecards.data[qidOfCardEditing].url }
                     shortDescr={ this.props.facecards.data[qidOfCardEditing].shortDescr }
                   /> : <Confirm /> } /> : null 
-              }
+          }
+          { !this.props.auth.username ? <WelcomeModal /> : null }
           <header className="nav mobile-no-padding">
             <Link 
               className="nav-left nav-item"
@@ -103,7 +105,8 @@ class Page extends Component {
 const mapStateToProps = state => ({
   confirm: state.confirm,
   toast: state.toast,
-  facecards: state.facecards
+  facecards: state.facecards,
+  auth: state.auth
 })
 
 export default connect(mapStateToProps, null)(Page);
