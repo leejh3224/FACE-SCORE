@@ -5,6 +5,7 @@ import Auth from './Auth'
 
 import { listenToFacecards } from '../actions/facecards'
 import { listenToUserscores } from '../actions/userscores'
+import { listenToAuth } from "../actions/auth"
 
 import { 
     img_person,
@@ -12,6 +13,10 @@ import {
 } from '../images'
 
 class WelcomeModal extends Component {
+
+    componentWillMount () {
+        this.props.listenToAuth()
+    }
 
     componentWillUnmount () {
         this.props.listenToFacecards()
@@ -118,6 +123,7 @@ class WelcomeModal extends Component {
 }
 
 const mapDispatchToProps = ({
+    listenToAuth,
     listenToFacecards,
     listenToUserscores
 })

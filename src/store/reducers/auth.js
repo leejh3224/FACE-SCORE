@@ -23,7 +23,7 @@ export default (state, action) => {
     case C.AUTH_LOGOUT:
       return {
         status: C.AUTH_ANONYMOUS,
-        username: "guest",
+        username: null,
         uid: null
       };
     default:

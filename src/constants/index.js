@@ -6,6 +6,7 @@ import facecard from './facecard'
 import userscore from './userscore'
 import confirm from './confirm'
 import toast from './toast'
+import search from './search'
 
 export default {
   ...articles,
@@ -15,5 +16,6 @@ export default {
   ...facecard,
   ...userscore,
   ...confirm,
-  ...toast
+  ...toast,
+  ...search
 };
