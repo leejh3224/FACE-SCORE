@@ -10,8 +10,8 @@ export class App extends Component {
     return (
       <Provider store={store}>
         <div>
-          {/* rendered only once */}
-          { store.getState().auth.status === "AUTH_ANONYMOU" ? <WelcomeModal /> : null }
+          {/* will be rendered only once when the user has no auth information */}
+          { store.getState().auth.status === "AUTH_ANONYMOUS" ? <WelcomeModal /> : null }
           <Page />
         </div>
       </Provider>
