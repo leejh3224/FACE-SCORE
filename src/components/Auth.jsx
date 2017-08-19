@@ -8,9 +8,10 @@ const Auth = props => {
   switch (props.auth.status) {
     case C.AUTH_LOGGED_IN:
       return (
-        <p>
-          <button onClick={props.logoutUser}>Log out</button>
-        </p>
+        // <p>
+        //   <button onClick={props.logoutUser}>Log out</button>
+        // </p>
+        null
       );
     case C.AUTH_AWAITING_RESPONSE:
       return (

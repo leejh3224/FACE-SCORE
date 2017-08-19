@@ -3,9 +3,9 @@ import { connect } from 'react-redux'
 
 import Auth from './Auth'
 
+import { listenToAuth } from "../actions/auth"
 import { listenToFacecards } from '../actions/facecards'
 import { listenToUserscores } from '../actions/userscores'
-import { listenToAuth } from "../actions/auth"
 
 import { 
     img_person,
@@ -19,11 +19,16 @@ class WelcomeModal extends Component {
     }
 
     componentWillUnmount () {
+        this.props.listenToAuth()
         this.props.listenToFacecards()
         this.props.listenToUserscores()
     }
 
     render () {
+        if (this.props.auth.status === 'AUTH_LOGGED_IN') {
+            this.props.history.push('/FacecardLoggedIn')
+        }
+
         return (
             <div className="modal is-active">
                 <div className="modal-background"></div>
@@ -122,10 +127,14 @@ class WelcomeModal extends Component {
     }
 }
 
-const mapDispatchToProps = ({
-    listenToAuth,
-    listenToFacecards,
-    listenToUserscores
+const mapStateToProps = state => ({
+    auth: state.auth
 })
 
-export default connect(null, mapDispatchToProps)(WelcomeModal)
+const mapDispatchToProps = ({
+    listenToFacecards,
+    listenToUserscores,
+    listenToAuth
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(WelcomeModal)

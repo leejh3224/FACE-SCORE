@@ -57,7 +57,6 @@ class Page extends Component {
                     shortDescr={ this.props.facecards.data[qidOfCardEditing].shortDescr }
                   /> : <Confirm /> } /> : null 
           }
-          { this.props.auth.status === "AUTH_ANONYMOUS" ? <WelcomeModal /> : null } 
           <header className="nav mobile-no-padding">
             <Link 
               className="nav-left nav-item"
@@ -91,7 +90,8 @@ class Page extends Component {
                 <img src="" id="ranking" alt="ranking" /> 
             </Link>
           </header>
-          <Route exact path="/" component={FacecardMain} />
+          <Route exact path="/" component={WelcomeModal} />
+          <Route path="/FacecardLoggedIn" component={FacecardMain} />
           <Route path="/FacecardForm" component={FacecardForm} />
           <Route path="/FacecardProfile" component={FacecardProfile} />
           <Route path="/FacecardGallery" component={FacecardGallery} />
@@ -109,4 +109,7 @@ const mapStateToProps = state => ({
   auth: state.auth
 })
 
-export default connect(mapStateToProps, null)(Page);
+const mapDispatchToProps = ({
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Page);
