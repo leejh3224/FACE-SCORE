@@ -13,13 +13,16 @@ import '../Global.css'
 import Facecards from './Facecards'
 
 class FacecardGallery extends Component {
-    render () {
-        const lastPage = this.props.search.status === "finished" ? 
-           this.props.search.results.length : Object.keys(this.props.facecards.data).length
 
+    componentWillMount () {
         if (this.props.location && this.props.location.pathname === "/FacecardGallery") {
             this.props.setToInitial()
         }
+    }
+
+    render () {
+        const lastPage = this.props.search.status === "finished" ? 
+           this.props.search.results.length : Object.keys(this.props.facecards.data).length
 
         return (
             this.props.auth.uid ?

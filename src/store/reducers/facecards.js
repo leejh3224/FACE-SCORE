@@ -47,6 +47,11 @@ export default (state, action) => {
           viewingNthCard: state.viewingNthCard -= 1
         }
       }
+    case C.FACECARD_SET_PAGENUMBER_TO_DEFAULT: 
+      return {
+        ...state,
+        viewingNthCard: 0
+      }
     case C.FACECARD_EDIT:
       newState = { ...state };
       newState.status[action.qid] = C.FACECARD_EDITING;

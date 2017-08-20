@@ -24,7 +24,7 @@ class Facecards extends Component {
         const facecardListOrLoading = hasReceivedData ? 
         ( facecardsList[viewingNthCard] || 
         <div style={{ position: 'relative', top: 250 }}>
-            <p>검색결과가 존재하지 않습니다.</p>
+            <p>검색결과가 존재하지 않거나 서버와의 연결이 불안정합니다.</p>
         </div>) : "로딩 중입니다 ...";
         return (
             // map 된 엘리멘트들은 div 로 감싸주지 않으면 invalid react element 에러가 난다.

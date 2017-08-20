@@ -22,5 +22,7 @@ export const searchStart = keywords => dispatch => {
     }, 1200)
 }
 
-export const setToInitial = () => dispatch => 
+export const setToInitial = () => dispatch => {
+    dispatch({ type: C.FACECARD_SET_PAGENUMBER_TO_DEFAULT })
     dispatch({ type: C.SEARCH_SET_TO_INITIAL })
+}
