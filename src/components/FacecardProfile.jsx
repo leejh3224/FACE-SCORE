@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import Icon from './Icon'
+import DropDown from './DropDown'
 
 import { 
     showDeleteConfirm,
@@ -17,6 +18,7 @@ class FacecardProfile extends Component {
     constructor() {
         super()
         this.state = {
+            usermenuExpanded: false,
             recentCardsExpanded: false,
             popularCardsExpanded: false
         }
@@ -186,8 +188,17 @@ class FacecardProfile extends Component {
                         <Icon
                             style={{ bottom: 13, right: 0 }}
                             label={'ellipsis-v'} 
-                            onClick={ this.props.logoutUser }
+                            onClick={ () => this.setState(prev => ({
+                                ...prev,
+                                usermenuExpanded: !prev.usermenuExpanded
+                            })) }
                         />
+                        { this.props.auth.username && this.state.usermenuExpanded ? 
+                            <DropDown 
+                                style={{ right: 200 }} 
+                                logout={ this.props.logoutUser } 
+                                history={ this.props.history }
+                            /> : null }
                     </div>
                     <hr />
                     <div className="box">

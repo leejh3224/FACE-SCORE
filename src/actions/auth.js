@@ -30,7 +30,8 @@ export const openAuth = () => dispatch => {
   });
 };
 
-export const logoutUser = () => dispatch => {
+export const logoutUser = history => dispatch => {
   dispatch({ type: C.AUTH_LOGOUT });
   auth.signOut();
+  history.push('/')
 };
