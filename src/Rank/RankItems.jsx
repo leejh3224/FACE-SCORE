@@ -1,17 +1,18 @@
 import React from 'react'
 
+// static
 import { 
     ico_rank_first,
     ico_rank_second,
     ico_rank_third
-} from '../images'
+} from '../static'
 
 const RankItems = props => 
     <div className="columns">
 
         {/* first  */}
         <div className="column">
-            <figure class="image" style={{ marginLeft: "auto", marginRight: "auto" }}>
+            <figure className="image" style={{ marginLeft: "auto", marginRight: "auto" }}>
                 <img 
                     src={ ico_rank_first }  
                     alt="first"
@@ -25,7 +26,7 @@ const RankItems = props =>
 
         {/* second  */}
         <div className="column">
-            <figure class="image" style={{ marginLeft: "auto", marginRight: "auto" }}>
+            <figure className="image" style={{ marginLeft: "auto", marginRight: "auto" }}>
                 <img 
                     src={ ico_rank_second }  
                     alt="second" 
@@ -39,7 +40,7 @@ const RankItems = props =>
 
         {/* third  */}
         <div className="column">
-            <figure class="image" style={{ marginLeft: "auto", marginRight: "auto" }}>
+            <figure className="image" style={{ marginLeft: "auto", marginRight: "auto" }}>
                 <img 
                     src={ ico_rank_third }  
                     alt="third"

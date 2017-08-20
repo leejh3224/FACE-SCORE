@@ -1,13 +1,18 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import Slider, { createSliderWithTooltip } from 'rc-slider'
 
+// components
+import { Icon } from '../Common'
+
+// actions
 import { showToast } from '../actions/toast'
 import { submitScore } from '../actions/userscores'
 
-import Icon from './Icon'
+// static
+import { not_found } from '../static'
 
-import Slider, { createSliderWithTooltip } from 'rc-slider'
-
+// css
 import 'rc-slider/assets/index.css'
 import '../Global.css'
 
@@ -54,32 +59,34 @@ class Facecard extends Component {
                 this.props.showToast("warning", "본인의 카드입니다!")
             }
         }
-    };
+    }
     
     render () {
         const {
             facecards,
             auth,
-            userscores
+            userscores,
+            search
         } = this.props
 
-        const isYourCard = Object.values(facecards.data || {})
+        const isYourCard = Object.values(search.status === "finished" ? search.results : facecards.data)
                                  .filter((record, index, records) => 
-                                            records[facecards.viewingNthCard].username !== auth.username)
+                                            records[facecards.viewingNthCard].username === auth.username)
                                  .length
 
-        const allFacecards = Object.keys(facecards.data || {})
+        const allFacecards = Object.keys(search.status === "finished" ? search.results : facecards.data)
 
-        const getScoreOfCard = qid => 
+        const getScoreOfCard = qid =>
             Object.values(userscores.data || {})
                 .filter(record => 
+
                     // to prevent undefined during loading
                     record.qid === qid
                 )
                 .reduce((first, next) => (first.score || first) + next.score
                 , 0)
 
-        const listWithScores = myCards => 
+        const listWithScores = myCards =>
             myCards.map(qid => {
                 const myCards = facecards.data[qid]
                 return ({
@@ -134,7 +141,7 @@ class Facecard extends Component {
                             src={ this.props.url } 
                             alt={ 'face' }
                             ref={ cardImg => this.cardImg = cardImg }
-                            onError={ () => this.cardImg.src = "https://cdn.browshot.com/static/images/not-found.png" }
+                            onError={ () => this.cardImg.src = not_found }
                         />  
                     </figure>
                 </div>
@@ -143,10 +150,10 @@ class Facecard extends Component {
                         <p className="is-2 has-text-grey">
                         { this.props.shortDescr && this.props.shortDescr.length ? this.props.shortDescr : '소개가 없습니다.' } 
                         </p> 
-                        { isYourCard ?
+                        { !isYourCard ?
                          starAndScore[this.props.facecards.viewingNthCard] : <p>{ this.props.auth.username + "님의 게시물입니다." }</p> }
                     </div>
-                    { isYourCard ?
+                    { !isYourCard ?
                         <SliderWithTooltip
                             min={0}
                             max={5}
@@ -192,6 +199,7 @@ const mapStateToProps = state => ({
     facecards: state.facecards,
     userscores: state.userscores,
     auth: state.auth,
+    search: state.search
 });
 
 const mapDispatchToProps = {

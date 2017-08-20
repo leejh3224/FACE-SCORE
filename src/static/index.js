@@ -12,6 +12,7 @@ import * as ico_rank_first from './ico_rank_first.svg'
 import * as ico_rank_second from './ico_rank_second.svg'
 import * as ico_rank_third from './ico_rank_third.svg'
 import * as ico_preview from './ico_preview.ico'
+import * as not_found from './not_found.png'
 
 export { 
     img_person, 
@@ -27,5 +28,6 @@ export {
     ico_rank_first,
     ico_rank_second,
     ico_rank_third,
-    ico_preview
+    ico_preview,
+    not_found
 }

@@ -7,8 +7,8 @@ class Facecards extends Component {
 
     render () {
         const facecardsList = Object.keys(this.props.search.status === "finished" ? (this.props.search.results) : (this.props.facecards.data || {}))
-        .map((qid, index) => {
-            const facecard = this.props.search.status === "finished" ? this.props.search.results[index] : this.props.facecards.data[qid]
+        .map(qid => {
+            const facecard = this.props.search.status === "finished" ? this.props.search.results[qid] : this.props.facecards.data[qid]
             return (
                 <Facecard 
                     key={qid}

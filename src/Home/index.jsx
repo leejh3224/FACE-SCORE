@@ -1,17 +1,30 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import FacecardGallery from './FacecardGallery'
-import LoadingBar from './LoadingBar'
-import Icon from './Icon'
+// components
+import Gallery from '../Gallery'
+import { 
+    Icon,
+    LoadingBar
+} from '../Common'
 
-import { searchStart } from '../actions/search'
+// actions
+import { 
+    searchStart,
+    setToInitial
+} from '../actions/search'
 
-import { lunatic_sky } from '../images'
+// static
+import { lunatic_sky } from '../static'
 
+// css
 import '../Global.css'
 
-class FacecardMain extends Component {
+class Home extends Component {
+
+    componentWillMount () {
+        this.props.setToInitial()
+    }
 
     render () {
         return (
@@ -34,8 +47,9 @@ class FacecardMain extends Component {
                                         minWidth: 250,
                                         maxWidth: 350
                                     }}
-                                    onKeyPress={ e => 
-                                        e.key === "Enter" ? this.props.searchStart(this.searchBar.value) : null 
+                                    onKeyPress={ e => {
+                                        return e.key === "Enter" ? this.props.searchStart(this.searchBar.value) : null 
+                                     }
                                     }
                                 />
                                 <Icon
@@ -87,7 +101,7 @@ class FacecardMain extends Component {
                             )
                         case "finished":
                             return (
-                                <FacecardGallery />
+                                <Gallery />
                             )
                     }
                 })() }                
@@ -102,7 +116,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = ({
-    searchStart
+    searchStart,
+    setToInitial
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(FacecardMain)
+export default connect(mapStateToProps, mapDispatchToProps)(Home)

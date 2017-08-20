@@ -1,43 +1,46 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux"
 
+// components
+import { DropDown } from '../Common'
+
+// actions
 import { showToast } from '../actions/toast'
 import { 
     submitFacecard,
     submitFacecardEdit
 } from "../actions/facecards"
 
-import DropDown from './DropDown'
-
+// static
 import { 
     ico_submit,
     ico_preview
-} from '../images'
+} from '../static'
 
-class FacecardForm extends Component {
+class Form extends Component {
 
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
             makeEmptyExpanded: false
         };
     }
-
+    
     submitNewCard = e => {
-        e.preventDefault();
+        e.preventDefault()
         if (!this.props.facecards.submittingNew) {
             if (this.url.value) {
                 let data = {
                     url: this.url.value,
                     shortDescr: this.textarea.value
                 }
-                this.props.submitFacecard(data);
+                this.props.submitFacecard(data)
                 this.props.showToast('success', '저장되었습니다.')
             } else {
                 this.props.showToast('warning', '이미지 URL란이 비었습니다.')
             }
-            this.textarea.value = "";
-            this.url.value = "";
+            this.textarea.value = ""
+            this.url.value = ""
         }
     };
 
@@ -45,8 +48,8 @@ class FacecardForm extends Component {
         e.preventDefault()
         this.props.submitFacecardEdit(data.qid, data)
         this.props.showToast('success', '수정되었습니다.')
-        this.textarea.value = "";
-        this.url.value = "";
+        this.textarea.value = ""
+        this.url.value = ""
     }
 
     showImage (url) {
@@ -177,4 +180,4 @@ const mapDispatchToProps = {
     showToast
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(FacecardForm);
+export default connect(mapStateToProps, mapDispatchToProps)(Form);

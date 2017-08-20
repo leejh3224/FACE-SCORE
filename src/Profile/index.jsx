@@ -1,9 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import Icon from './Icon'
-import DropDown from './DropDown'
+// components
+import { 
+    Icon,
+    DropDown
+} from '../Common'
 
+// actions
 import { 
     showDeleteConfirm,
     showEditModal
@@ -11,9 +15,10 @@ import {
 import { logoutUser } from '../actions/auth'
 import { startFacecardEdit } from '../actions/facecards'
 
+// css
 import '../Global.css'
 
-class FacecardProfile extends Component {
+class Profile extends Component {
 
     constructor() {
         super()
@@ -48,9 +53,9 @@ class FacecardProfile extends Component {
             let comparison = 0
 
             if (scoreA > scoreB) {
-                comparison = -1;
+                comparison = -1
             } else if (scoreA < scoreB) {
-                comparison = 1;
+                comparison = 1
             }
 
             return comparison
@@ -273,4 +278,4 @@ const mapDispatchToProps = {
     logoutUser
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(FacecardProfile)
+export default connect(mapStateToProps, mapDispatchToProps)(Profile)

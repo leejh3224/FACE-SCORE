@@ -1,30 +1,33 @@
 import React, { Component } from 'react'
-import { connect } from "react-redux";
+import { connect } from "react-redux"
 
+// components
+import Facecards from './Facecards'
+
+// actions
 import { showToast } from '../actions/toast'
 import { 
     turnToNextCardUnless,
     turnToPreviousCard
 } from '../actions/facecards'
-import { 
-    setToInitial
-} from '../actions/search'
+import { setToInitial } from '../actions/search'
 
+// css
 import '../Global.css'
 
-import Facecards from './Facecards'
-
-class FacecardGallery extends Component {
+class Gallery extends Component {
 
     componentWillMount () {
-        if (this.props.location && this.props.location.pathname === "/FacecardGallery") {
+        if (this.props.location && this.props.location.pathname === "/Gallery") {
             this.props.setToInitial()
         }
     }
 
     render () {
-        const lastPage = this.props.search.status === "finished" ? 
-           this.props.search.results.length : Object.keys(this.props.facecards.data).length
+        const lastPage = Object.keys(
+            this.props.search.status === "finished" ?
+            this.props.search.results : this.props.facecards.data
+        ).length
 
         return (
             this.props.auth.uid ?
@@ -94,4 +97,4 @@ const mapDispatchToProps = {
     setToInitial
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(FacecardGallery);
+export default connect(mapStateToProps, mapDispatchToProps)(Gallery);

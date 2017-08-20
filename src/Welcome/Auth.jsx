@@ -1,7 +1,7 @@
-import React from "react";
-import { connect } from "react-redux";
-import { openAuth, logoutUser } from "../actions/auth";
-import C from "../constants";
+import React from "react"
+import { connect } from "react-redux"
+import { openAuth, logoutUser } from "../actions/auth"
+import C from "../constants"
 import styles from '../Global.css'
 
 const Auth = props => {

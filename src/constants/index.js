@@ -1,6 +1,4 @@
-import articles from "./articles";
 import auth from "./auth";
-import feedback from "./feedback";
 import firebase from "./firebase";
 import facecard from './facecard'
 import userscore from './userscore'
@@ -9,9 +7,7 @@ import toast from './toast'
 import search from './search'
 
 export default {
-  ...articles,
   ...auth,
-  ...feedback,
   ...firebase,
   ...facecard,
   ...userscore,

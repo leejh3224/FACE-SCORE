@@ -1,32 +1,24 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
+// component
 import Auth from './Auth'
 
+// actions
 import { listenToAuth } from "../actions/auth"
 import { listenToFacecards } from '../actions/facecards'
 import { listenToUserscores } from '../actions/userscores'
 
+// static
 import { 
     img_person,
     txt_facescore
-} from '../images'
+} from '../static'
 
 class WelcomeModal extends Component {
-
-    componentWillMount () {
-        this.props.listenToAuth()
-    }
-
-    componentWillUnmount () {
-        this.props.listenToAuth()
-        this.props.listenToFacecards()
-        this.props.listenToUserscores()
-    }
-
     render () {
         if (this.props.auth.status === 'AUTH_LOGGED_IN') {
-            this.props.history.push('/FacecardLoggedIn')
+            this.props.history.push('/Home')
         }
 
         return (

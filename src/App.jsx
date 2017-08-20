@@ -1,10 +1,14 @@
-import React, { Component } from "react";
-import { Provider } from "react-redux";
-import store from "./store";
+import React, { Component } from "react"
+import { Provider } from "react-redux"
+import store from "./store"
+
+// components
+import Page from "./Page"
+
+// actions
 import { listenToAuth } from "./actions/auth"
 import { listenToFacecards } from './actions/facecards'
 import { listenToUserscores } from './actions/userscores'
-import Page from "./components/Page";
 
 export class App extends Component {
   componentWillMount () {

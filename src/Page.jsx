@@ -6,23 +6,27 @@ import {
 } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-import FacecardMain from './FacecardMain'
-import FacecardGallery from './FacecardGallery'
-import FacecardForm from './FacecardForm'
-import FacecardRank from './FacecardRank'
-import FacecardProfile from './FacecardProfile'
-import Toast from './Toast'
-import Confirm from './Confirm'
-import Modal from './Modal'
-import WelcomeModal from './WelcomeModal'
+// components
+import Home from './Home'
+import Gallery from './Gallery'
+import Form from './Form'
+import Rank from './Rank'
+import Profile from './Profile'
+import WelcomeModal from './Welcome'
+import { 
+  Toast,
+  Confirm,
+  Modal 
+} from './Common'
 
+// static
 import {
   ico_diamond,
   ico_plus,
   ico_profile,
   ico_star,
   img_logo
-} from '../images'
+} from './static'
 
 class Page extends Component {
 
@@ -38,7 +42,7 @@ class Page extends Component {
 
                 // check some of card is waiting for editing
                 qidOfCardEditing ? 
-                  <FacecardForm 
+                  <Form 
                     url={ this.props.facecards.data[qidOfCardEditing].url }
                     shortDescr={ this.props.facecards.data[qidOfCardEditing].shortDescr }
                   /> : <Confirm /> } /> : null 
@@ -77,11 +81,11 @@ class Page extends Component {
             </Link>
           </header>
           <Route exact path="/" component={WelcomeModal} />
-          <Route path="/Home" component={FacecardMain} />
-          <Route path="/Form" component={FacecardForm} />
-          <Route path="/Profile" component={FacecardProfile} />
-          <Route path="/Gallery" component={FacecardGallery} />
-          <Route path="/Rank" component={FacecardRank} />
+          <Route path="/Home" component={Home} />
+          <Route path="/Form" component={Form} />
+          <Route path="/Profile" component={Profile} />
+          <Route path="/Gallery" component={Gallery} />
+          <Route path="/Rank" component={Rank} />
         </div>
       </Router>
     )

@@ -7,13 +7,14 @@ const DropDown = props =>
         <div className="dropdown-menu" id="dropdown-menu" role="menu">
             <div className="dropdown-content" style={{ backgroundColor: "#f9f9f9" }}>
                 { 
-                    props.items.map(item => {
+                    props.items.map((item, index) => {
                         switch(item) {
                             case "로그아웃":
                                 return (
                                     <a 
                                         className="dropdown-item"
                                         onClick={ () => props.logout(props.history) }
+                                        key={index}
                                     >
                                         { item }
                                     </a>  
@@ -23,6 +24,7 @@ const DropDown = props =>
                                     <a 
                                         className="dropdown-item"
                                         onClick={ props.clearURL }
+                                        key={index}
                                     >
                                         { item }
                                     </a>
@@ -32,6 +34,7 @@ const DropDown = props =>
                                     <a 
                                         className="dropdown-item"
                                         onClick={ props.clearShortDescr }
+                                        key={index}
                                     >
                                         { item }
                                     </a>

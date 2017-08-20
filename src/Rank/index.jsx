@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 
-import { 
-    ico_trophy
-} from '../images'
-
+// components
 import RankItems from './RankItems'
 
-class FacecardRank extends Component {
+// static
+import { ico_trophy } from '../static'
+
+class Rank extends Component {
     render () {
         return (
             <div>
@@ -47,4 +47,4 @@ class FacecardRank extends Component {
     }
 }
 
-export default FacecardRank
+export default Rank

@@ -3,7 +3,7 @@ import C from '../../constants'
 const initialState = {
     status: "not searched",
     keywords: "",
-    results: null
+    results: {}
 }
 
 export default (state, action) => {
