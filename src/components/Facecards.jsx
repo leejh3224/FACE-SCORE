@@ -6,8 +6,9 @@ import Facecard from './Facecard'
 class Facecards extends Component {
 
     render () {
-        const facecardsList = Object.keys(this.props.facecards.data).map(qid => {
-            const facecard = this.props.facecards.data[qid]
+        const facecardsList = Object.keys(this.props.search.status === "finished" ? (this.props.search.results) : (this.props.facecards.data || {}))
+        .map((qid, index) => {
+            const facecard = this.props.search.status === "finished" ? this.props.search.results[index] : this.props.facecards.data[qid]
             return (
                 <Facecard 
                     key={qid}
@@ -20,8 +21,11 @@ class Facecards extends Component {
             ) 
         })
         const { hasReceivedData, viewingNthCard } = this.props.facecards
-        const facecardListOrLoading = hasReceivedData
-        ? facecardsList[viewingNthCard] : "로딩 중입니다 ...";
+        const facecardListOrLoading = hasReceivedData ? 
+        ( facecardsList[viewingNthCard] || 
+        <div style={{ position: 'relative', top: 250 }}>
+            <p>검색결과가 존재하지 않습니다.</p>
+        </div>) : "로딩 중입니다 ...";
         return (
             // map 된 엘리멘트들은 div 로 감싸주지 않으면 invalid react element 에러가 난다.
             <div>
@@ -32,7 +36,8 @@ class Facecards extends Component {
 }
 
 const mapStateToProps = state => ({
-    facecards: state.facecards
+    facecards: state.facecards,
+    search: state.search
 })
 
 export default connect(mapStateToProps, null)(Facecards)

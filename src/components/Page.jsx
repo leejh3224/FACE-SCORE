@@ -16,29 +16,15 @@ import Confirm from './Confirm'
 import Modal from './Modal'
 import WelcomeModal from './WelcomeModal'
 
-import { icons, iconNames } from '../constants/icons'
+import {
+  ico_diamond,
+  ico_plus,
+  ico_profile,
+  ico_star,
+  img_logo
+} from '../images'
 
 class Page extends Component {
-
-  downloadImages (FSicons) {
-    if (FSicons.length) {
-      FSicons.map((icon, index) => 
-        icon.getDownloadURL().then(
-          url => {
-
-            // if elements need images
-            if (document.getElementById(iconNames[index])) {
-              document.getElementById(iconNames[index]).src = url
-            }
-          }
-        )
-      )
-    }
-  }
-
-  componentDidMount() {
-    this.downloadImages(icons)
-  }
 
   render () {
     const qidOfCardEditing = Object.keys(this.props.facecards.status)[0] || false
@@ -62,32 +48,32 @@ class Page extends Component {
               className="nav-left nav-item"
               to="/"
             >
-              <img src="" id="logo" alt="logo" />
+              <img src={ img_logo } id="logo" alt="logo" />
               <div className="nav-item is-hidden-mobile">FACESCORE</div>
             </Link>
             <Link 
               className="nav-item icon-grow"
               to="/FacecardForm"
             >
-              <img src="" id="addCard" alt="addCard" title="카드 추가하기" />
+              <img src={ ico_plus } id="addCard" alt="addCard" title="카드 추가하기" />
             </Link>
             <Link 
                 className="nav-item icon-grow"
                 to="/FacecardProfile"
             >
-              <img src="" id="profile" alt="profile" title="프로필 보기" />    
+              <img src={ ico_profile } id="profile" alt="profile" title="프로필 보기" />    
             </Link>
             <Link 
                 className="nav-item icon-grow"
                 to="/FacecardGallery"
             >
-                <img src="" id="gallery" alt="gallery" title="갤러리 가기" />
+                <img src={ ico_star } id="gallery" alt="gallery" title="갤러리 가기" />
             </Link>
             <Link
                 className="nav-item icon-grow"
                 to="/FacecardRank"
             >
-                <img src="" id="ranking" alt="ranking" title="랭킹 보기" /> 
+                <img src={ ico_diamond } id="ranking" alt="ranking" title="랭킹 보기" /> 
             </Link>
           </header>
           <Route exact path="/" component={WelcomeModal} />
@@ -109,7 +95,4 @@ const mapStateToProps = state => ({
   auth: state.auth
 })
 
-const mapDispatchToProps = ({
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(Page);
+export default connect(mapStateToProps, null)(Page);

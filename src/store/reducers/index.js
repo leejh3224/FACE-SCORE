@@ -6,6 +6,7 @@ import feedback from "./feedback";
 import userscores from './userscores'
 import confirm from './confirm'
 import toast from './toast'
+import search from './search'
 
 const rootReducer = combineReducers({
   articles,
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
   facecards,
   userscores,
   confirm,
-  toast
+  toast,
+  search
 });
 
 export default rootReducer;

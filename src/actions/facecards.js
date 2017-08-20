@@ -27,8 +27,8 @@ export const submitFacecard = data => (dispatch, getState) => {
   dispatch({ type: C.FACECARD_RECEIVE_CREATION_RESPONSE });
 };
 
-export const turnToNextCard = () => dispatch => {
-  dispatch({ type: C.FACECARD_TURN_NEXT })
+export const turnToNextCardUnless = end => dispatch => {
+  dispatch({ type: C.FACECARD_TURN_NEXT, end })
 }
 
 export const turnToPreviousCard = () => dispatch => {

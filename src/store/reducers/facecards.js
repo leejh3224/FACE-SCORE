@@ -30,7 +30,7 @@ export default (state, action) => {
         submittingNew: false
       };
     case C.FACECARD_TURN_NEXT:
-      if (state.viewingNthCard < Object.keys(state.data).length - 1) {
+      if (state.viewingNthCard < action.end - 1) {
         return {
           ...state,
           viewingNthCard: state.viewingNthCard += 1

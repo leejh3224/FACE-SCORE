@@ -3,9 +3,10 @@ import { connect } from "react-redux";
 
 import { showToast } from '../actions/toast'
 import { 
-    turnToNextCard,
+    turnToNextCardUnless,
     turnToPreviousCard
 } from '../actions/facecards'
+import { setToInitial } from '../actions/search'
 
 import '../Global.css'
 
@@ -13,6 +14,13 @@ import Facecards from './Facecards'
 
 class FacecardGallery extends Component {
     render () {
+        const lastPage = this.props.search.status === "finished" ? 
+           this.props.search.results.length : Object.keys(this.props.facecards.data).length
+
+        if (this.props.location && this.props.location.pathname === "/FacecardGallery") {
+            this.props.setToInitial()
+        }
+
         return (
             this.props.auth.uid ?
             <div className="columns is-mobile">
@@ -50,9 +58,9 @@ class FacecardGallery extends Component {
                         className="centered arrow-icon"
                         style={{ color: '#6d2cf9' }}
                         onClick={ () => {
-                            this.props.turnToNextCard() 
+                            this.props.turnToNextCardUnless(lastPage) 
                             if (this.props.facecards.viewingNthCard >=
-                            Object.keys(this.props.facecards.data).length - 1) {
+                            lastPage - 1) {
                                 this.props.showToast('warning', '마지막 페이지입니다.') 
                             }
                         }}
@@ -70,13 +78,15 @@ class FacecardGallery extends Component {
 
 const mapStateToProps = state => ({
     auth: state.auth,
-    facecards: state.facecards
+    facecards: state.facecards,
+    search: state.search
 });
 
 const mapDispatchToProps = {
-    turnToNextCard,
+    turnToNextCardUnless,
     turnToPreviousCard,
-    showToast
+    showToast,
+    setToInitial
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(FacecardGallery);

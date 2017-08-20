@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
-import { icons } from "../constants/icons"
 
 import { showToast } from '../actions/toast'
 import { 
     submitFacecard,
     submitFacecardEdit
 } from "../actions/facecards";
+
+import { ico_submit } from '../images'
 
 class FacecardForm extends Component {
 
@@ -15,17 +16,6 @@ class FacecardForm extends Component {
         this.state = {
             url: null,
         };
-    }
-
-    componentDidMount () {
-
-        const submit = icons[9]
-
-        submit.getDownloadURL().then(
-            url => document.getElementById("submit") ? 
-                        document.getElementById("submit")
-                                .src = url : undefined
-        )
     }
 
     submitNewCard = e => {
@@ -73,7 +63,8 @@ class FacecardForm extends Component {
                     className="card column is-6 is-offset-3"
                     style={{
                         marginTop: "10px",
-                        marginBottom: "10px"
+                        marginBottom: "10px",
+                        borderRadius: 10
                     }}
                 >
                         {/* Image Uploader */}
@@ -127,7 +118,7 @@ class FacecardForm extends Component {
                                     marginLeft: '90%'
                                 }}
                             >
-                                <img id="submit" src="" alt="submit" />
+                                <img src={ ico_submit } alt="submit" />
                             </a>
                             <a 
                                 className="button"
