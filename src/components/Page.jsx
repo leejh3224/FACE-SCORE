@@ -53,35 +53,35 @@ class Page extends Component {
             </Link>
             <Link 
               className="nav-item icon-grow"
-              to="/FacecardForm"
+              to="/Form"
             >
               <img src={ ico_plus } id="addCard" alt="addCard" title="카드 추가하기" />
             </Link>
             <Link 
                 className="nav-item icon-grow"
-                to="/FacecardProfile"
+                to="/Profile"
             >
               <img src={ ico_profile } id="profile" alt="profile" title="프로필 보기" />    
             </Link>
             <Link 
                 className="nav-item icon-grow"
-                to="/FacecardGallery"
+                to="/Gallery"
             >
                 <img src={ ico_star } id="gallery" alt="gallery" title="갤러리 가기" />
             </Link>
             <Link
                 className="nav-item icon-grow"
-                to="/FacecardRank"
+                to="/Rank"
             >
                 <img src={ ico_diamond } id="ranking" alt="ranking" title="랭킹 보기" /> 
             </Link>
           </header>
           <Route exact path="/" component={WelcomeModal} />
-          <Route path="/FacecardLoggedIn" component={FacecardMain} />
-          <Route path="/FacecardForm" component={FacecardForm} />
-          <Route path="/FacecardProfile" component={FacecardProfile} />
-          <Route path="/FacecardGallery" component={FacecardGallery} />
-          <Route path="/FacecardRank" component={FacecardRank} />
+          <Route path="/Home" component={FacecardMain} />
+          <Route path="/Form" component={FacecardForm} />
+          <Route path="/Profile" component={FacecardProfile} />
+          <Route path="/Gallery" component={FacecardGallery} />
+          <Route path="/Rank" component={FacecardRank} />
         </div>
       </Router>
     )

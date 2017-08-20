@@ -10,13 +10,19 @@ class FacecardRank extends Component {
     render () {
         return (
             <div>
-                <div className="column is-2 is-offset-5">
-                    <img 
+                <div
+                    style={{ 
+                        display: "flex", 
+                        marginLeft: "auto",
+                        marginRight: "auto",
+                        width: 220,
+                        height: 200
+                    }}>
+                    <img
+                        className="column"
                         src={ ico_trophy } 
                         alt="trophy" 
-                        width={200} 
-                        height={200} 
-                />
+                    />
                 </div>
                 <div className="column is-8 is-offset-2">
                     <h1 className="title is-3 line-center-wrapper">

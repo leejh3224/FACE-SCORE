@@ -9,7 +9,10 @@ import {
 
 import DropDown from './DropDown'
 
-import { ico_submit } from '../images'
+import { 
+    ico_submit,
+    ico_preview
+} from '../images'
 
 class FacecardForm extends Component {
 
@@ -85,12 +88,12 @@ class FacecardForm extends Component {
                                 marginBottom: "20px"
                             }}
                         />          
-                        <figure className="image" style={{ width: 'auto', height: 180 }}>
+                        <figure className="image" style={{ width: 'auto', height: 'auto' }}>
                             <img 
-                                src={ this.props.url ? this.props.url : "" }
+                                src={ this.props.url ? this.props.url : ico_preview }
                                 ref={ img => this.img = img }
                                 style={{ paddingLeft: 15 }}
-                                alt="미리보기가 뜨지 않으면 사진이 표시되지 않을 수 있습니다."
+                                alt="미리보기"
                             />
                         </figure>
 

@@ -11,7 +11,7 @@ const RankItems = props =>
 
         {/* first  */}
         <div className="column">
-            <figure class="image">
+            <figure class="image" style={{ marginLeft: "auto", marginRight: "auto" }}>
                 <img 
                     src={ ico_rank_first }  
                     alt="first"
@@ -25,7 +25,7 @@ const RankItems = props =>
 
         {/* second  */}
         <div className="column">
-            <figure class="image">
+            <figure class="image" style={{ marginLeft: "auto", marginRight: "auto" }}>
                 <img 
                     src={ ico_rank_second }  
                     alt="second" 
@@ -39,7 +39,7 @@ const RankItems = props =>
 
         {/* third  */}
         <div className="column">
-            <figure class="image">
+            <figure class="image" style={{ marginLeft: "auto", marginRight: "auto" }}>
                 <img 
                     src={ ico_rank_third }  
                     alt="third"
