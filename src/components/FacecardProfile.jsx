@@ -180,7 +180,15 @@ class FacecardProfile extends Component {
         ) 
 
         return (
-            <div>
+            <div 
+                onClick={
+                    this.state.usermenuExpanded ? 
+                    () => this.setState(prev => ({
+                        ...prev,
+                        usermenuExpanded: !prev.usermenuExpanded
+                    })) : null
+                }
+            >
                 <div className="column is-8 is-offset-2">
                     <div className="box" style={{ position: 'relative' }}>
                         <h1>{ this.props.auth.username ? 

@@ -6,7 +6,9 @@ import {
     turnToNextCardUnless,
     turnToPreviousCard
 } from '../actions/facecards'
-import { setToInitial } from '../actions/search'
+import { 
+    setToInitial
+} from '../actions/search'
 
 import '../Global.css'
 

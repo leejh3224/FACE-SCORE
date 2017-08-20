@@ -15,6 +15,9 @@ export const searchStart = keywords => dispatch => {
 
         dispatch({ type: C.SEARCH_SAVE_RESULTS, data })
     })
+
+    //  result page should show first page of result always
+    dispatch({ type: C.FACECARD_SET_PAGENUMBER_TO_DEFAULT })
     setTimeout(() => {
         return (
             dispatch({ type: C.SEARCH_END })
