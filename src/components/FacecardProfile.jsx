@@ -204,6 +204,7 @@ class FacecardProfile extends Component {
                         { this.props.auth.username && this.state.usermenuExpanded ? 
                             <DropDown 
                                 style={{ right: 200 }} 
+                                items={['로그아웃']}
                                 logout={ this.props.logoutUser } 
                                 history={ this.props.history }
                             /> : null }

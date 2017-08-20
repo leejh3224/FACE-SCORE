@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
-import { connect } from "react-redux";
+import { connect } from "react-redux"
 
 import { showToast } from '../actions/toast'
 import { 
     submitFacecard,
     submitFacecardEdit
-} from "../actions/facecards";
+} from "../actions/facecards"
+
+import DropDown from './DropDown'
 
 import { ico_submit } from '../images'
 
@@ -14,7 +16,7 @@ class FacecardForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            url: null,
+            makeEmptyExpanded: false
         };
     }
 
@@ -44,10 +46,6 @@ class FacecardForm extends Component {
         this.url.value = "";
     }
 
-    handleUrlChange (event) {
-        this.setState({ url: event.target.value });
-    }
-
     showImage (url) {
         if (this.img) {
             this.img.src = url
@@ -58,7 +56,15 @@ class FacecardForm extends Component {
         const qidOfCardEditing = Object.keys(this.props.facecards.status)[0] || false
         return (
             this.props.auth.uid ?
-            <div>
+            <div
+                onClick={
+                    this.state.makeEmptyExpanded ? 
+                    () => this.setState(prev => ({
+                        ...prev,
+                        makeEmptyExpanded: !prev.makeEmptyExpanded
+                    })) : null
+                }
+            >
                 <div 
                     className="card column is-6 is-offset-3"
                     style={{
@@ -72,15 +78,14 @@ class FacecardForm extends Component {
                             className="input" 
                             type="text" 
                             placeholder="이미지 주소를 넣어주세요."
-                            onChange={ event => this.handleUrlChange(event) }
+                            onChange={ event => this.showImage(event.target.value) }
                             ref={ url => this.url = url }
-                            onTouchMove={ this.showImage(this.state.url) }
                             defaultValue={ qidOfCardEditing ? this.props.url : "" }
                             style={{
                                 marginBottom: "20px"
                             }}
                         />          
-                        <figure className="image" style={{ width: 'auto', height: this.state.url ? 'auto' : 250 }}>
+                        <figure className="image" style={{ width: 'auto', height: 180 }}>
                             <img 
                                 src={ this.props.url ? this.props.url : "" }
                                 ref={ img => this.img = img }
@@ -88,8 +93,21 @@ class FacecardForm extends Component {
                                 alt="미리보기가 뜨지 않으면 사진이 표시되지 않을 수 있습니다."
                             />
                         </figure>
+
                     {/* Body */}
                     <div className="card-content">
+                        { this.props.auth.username && this.state.makeEmptyExpanded ?
+                            <DropDown
+                                style={{ bottom: 120, left: 105 }}
+                                items={['이미지URL만', '소개만', '모두']}
+                                clearURL={ () => this.url.value = "" }
+                                clearShortDescr={ () => this.textarea.value = "" }
+                                clearAll={ () => { 
+                                    this.url.value = "" 
+                                    this.textarea.value= ""
+                                }}
+                            /> : null
+                        }
                         <div className="content">
                             <textarea 
                                 className="textarea is-primary" 
@@ -121,17 +139,19 @@ class FacecardForm extends Component {
                                 <img src={ ico_submit } alt="submit" />
                             </a>
                             <a 
-                                className="button"
+                                className="button is-danger"
                                 style={{
                                     position: 'relative',
                                     top: -40
                                 }}
                                 onClick={ () => {
-                                    this.url.value = ""
-                                    this.textarea.value = ""
+                                    this.setState(prev => ({
+                                        ...prev,
+                                        makeEmptyExpanded: !prev.makeEmptyExpanded
+                                    }))
                                 }}
                             >
-                                내용비우기
+                                비우기
                             </a>
                         </div>
                     </div>
