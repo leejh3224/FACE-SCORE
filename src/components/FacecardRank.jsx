@@ -1,38 +1,42 @@
 import React, { Component } from 'react'
 
+import { 
+    ico_trophy
+} from '../images'
+
+import RankItems from './RankItems'
+
 class FacecardRank extends Component {
     render () {
         return (
-            <table className="table column is-6 is-offset-4">
-                <thead>
-                    <tr>
-                        <th>순위</th>
-                        <th>유저명</th>
-                        <th>게시글수</th>
-                        <th>획득별점</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td className="has-text-centered">1. </td>
-                        <td className="has-text-centered">이준호</td>
-                        <td className="has-text-centered">1</td>
-                        <td className="has-text-centered">4</td>
-                    </tr>
-                    <tr>
-                        <td className="has-text-centered">2. </td>
-                        <td className="has-text-centered">이준형</td>
-                        <td className="has-text-centered">3</td>
-                        <td className="has-text-centered">2</td>
-                    </tr>
-                    <tr>
-                        <td className="has-text-centered">3. </td>
-                        <td className="has-text-centered">Patrick Lee</td>
-                        <td className="has-text-centered">2</td>
-                        <td className="has-text-centered">1</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div>
+                <div className="column is-2 is-offset-5">
+                    <img 
+                        src={ ico_trophy } 
+                        alt="trophy" 
+                        width={200} 
+                        height={200} 
+                />
+                </div>
+                <div className="column is-8 is-offset-2">
+                    <h1 className="title is-3 line-center-wrapper">
+                        <span className="line-center"> 총 별점 </span>
+                    </h1>
+                    <RankItems />
+                </div>
+                <div className="column is-8 is-offset-2">
+                    <h1 className="title is-3 line-center-wrapper">
+                        <span className="line-center"> 평균 별점 </span>
+                    </h1>
+                    <RankItems />
+                </div>
+                <div className="column is-8 is-offset-2">
+                    <h1 className="title is-3 line-center-wrapper">
+                        <span className="line-center"> 카드 수 </span>
+                    </h1>
+                    <RankItems />
+                </div>
+            </div>
         )
     }
 }

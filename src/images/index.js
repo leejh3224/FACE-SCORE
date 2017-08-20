@@ -7,10 +7,10 @@ import * as ico_profile from './ico_profile.png'
 import * as ico_star from './ico_star.png'
 import * as ico_submit from './ico_submit.png'
 import * as img_logo from './img_logo.png'
-import * as ico_arr_left_off from './ico_arr_left_off.png'
-import * as ico_arr_left_on from './ico_arr_left_on.png'
-import * as ico_arr_right_off from './ico_arr_right_off.png'
-import * as ico_arr_right_on from './ico_arr_right_on.png'
+import * as ico_trophy from './ico_trophy.jpg'
+import * as ico_rank_first from './ico_rank_first.svg'
+import * as ico_rank_second from './ico_rank_second.svg'
+import * as ico_rank_third from './ico_rank_third.svg'
 
 export { 
     img_person, 
@@ -22,8 +22,8 @@ export {
     ico_star,
     ico_submit,
     img_logo,
-    ico_arr_left_off,
-    ico_arr_left_on,
-    ico_arr_right_off,
-    ico_arr_right_on,       
+    ico_trophy,
+    ico_rank_first,
+    ico_rank_second,
+    ico_rank_third  
 }
