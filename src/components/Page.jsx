@@ -66,28 +66,28 @@ class Page extends Component {
               <div className="nav-item is-hidden-mobile">FACESCORE</div>
             </Link>
             <Link 
-              className="nav-item"
+              className="nav-item icon-grow"
               to="/FacecardForm"
             >
-              <img src="" id="addCard" alt="addCard" />
+              <img src="" id="addCard" alt="addCard" title="카드 추가하기" />
             </Link>
             <Link 
-                className="nav-item"
+                className="nav-item icon-grow"
                 to="/FacecardProfile"
             >
-              <img src="" id="profile" alt="profile" />    
+              <img src="" id="profile" alt="profile" title="프로필 보기" />    
             </Link>
             <Link 
-                className="nav-item"
+                className="nav-item icon-grow"
                 to="/FacecardGallery"
             >
-                <img src="" id="gallery" alt="gallery" />
+                <img src="" id="gallery" alt="gallery" title="갤러리 가기" />
             </Link>
             <Link
-                className="nav-item"
+                className="nav-item icon-grow"
                 to="/FacecardRank"
             >
-                <img src="" id="ranking" alt="ranking" /> 
+                <img src="" id="ranking" alt="ranking" title="랭킹 보기" /> 
             </Link>
           </header>
           <Route exact path="/" component={WelcomeModal} />

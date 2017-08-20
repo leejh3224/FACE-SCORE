@@ -152,6 +152,10 @@ img {
 
 /* LoadingBar */
 
+.icon-grow:hover {
+    transform: scale(1.2);
+}
+
 @media (max-width: 780px) {
     .centered {
         top: 50%;

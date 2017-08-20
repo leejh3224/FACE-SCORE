@@ -42,7 +42,9 @@ class FacecardMain extends Component {
                         justifyContent: 'center'
                     }}
                 >
-                    <h1 className="title is-5 has-text-centered has-text-white">검색결과가 이곳에 표시됩니다.</h1>
+                    <h1 className="title is-5 has-text-centered has-text-white">
+                        * 
+                    </h1>
                 </div>
             </div>
         )
