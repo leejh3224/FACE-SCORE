@@ -18,8 +18,8 @@ class FacecardMain extends Component {
             <div>
                 <nav className="level">
                     <div className="level-item">
-                        <p className="subtitle is-5">
-                            총 <strong>23</strong> 개의 카드
+                        <p className="subtitle is-5 is-hidden-mobile">
+                            총 <strong>{ Object.keys(this.props.facecards.data).length }</strong> 개의 카드
                         </p>
                         <div className="field has-addons" style={{ marginLeft: 10 }}>
                             <p style={{ position: 'relative' }} >
@@ -97,7 +97,8 @@ class FacecardMain extends Component {
 }
 
 const mapStateToProps = state => ({
-    search: state.search
+    search: state.search,
+    facecards: state.facecards
 })
 
 const mapDispatchToProps = ({
