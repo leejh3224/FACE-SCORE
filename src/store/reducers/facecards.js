@@ -6,7 +6,9 @@ const initialState = {
   errorMessage: "",
   data: {},
   status: {},
-  viewingNthCard: 0
+  viewingNthCard: 0,
+  randomPageNum: -1,
+  isLoadingCard: false
 };
 
 export default (state, action) => {
@@ -30,27 +32,66 @@ export default (state, action) => {
         submittingNew: false
       };
     case C.FACECARD_TURN_NEXT:
-      if (state.viewingNthCard < action.end - 1) {
-        return {
-          ...state,
-          viewingNthCard: state.viewingNthCard += 1
+      if (state.randomPageNum !== -1) {
+        if (state.randomPageNum < action.end - 1) {
+          return {
+            ...state,
+            viewingNthCard: state.randomPageNum += 1
+          }
+        } else {
+          return state
         }
       } else {
-        return state
+        if (state.viewingNthCard < action.end - 1) {
+          return {
+            ...state,
+            viewingNthCard: state.viewingNthCard += 1
+          }
+        } else {
+          return state
+        }
       }
     case C.FACECARD_TURN_PREVIOUS:
-      if (state.viewingNthCard === 0) {
-        return state
+      if (state.randomPageNum !== -1) {
+        if (state.randomPageNum === 0) {
+          return state
+        } else {
+          return {
+            ...state,
+            viewingNthCard: state.randomPageNum -= 1
+          }
+        }
       } else {
-        return {
-          ...state,
-          viewingNthCard: state.viewingNthCard -= 1
+        if (state.viewingNthCard === 0) {
+          return state
+        } else {
+          return {
+            ...state,
+            viewingNthCard: state.viewingNthCard -= 1
+          }
         }
       }
     case C.FACECARD_SET_PAGENUMBER_TO_DEFAULT: 
       return {
         ...state,
-        viewingNthCard: 0
+        viewingNthCard: 0,
+        randomPageNum: -1
+      }
+    case C.FACECARD_SHOW_RANDOM_CARD:
+      return {
+        ...state,
+        randomPageNum: action.randomPageNum
+      }
+    case C.FACECARD_START_LOADING:
+      return {
+        ...state,
+        isLoadingCard: true,
+        randomPageNum: -1
+      }
+    case C.FACECARD_END_LOADING:
+      return {
+        ...state,
+        isLoadingCard: false
       }
     case C.FACECARD_EDIT:
       newState = { ...state };

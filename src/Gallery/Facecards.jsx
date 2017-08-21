@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
+import { LoadingBar } from '../Common'
 import Facecard from './Facecard'
 
 class Facecards extends Component {
@@ -21,12 +22,12 @@ class Facecards extends Component {
                 />
             ) 
         })
-        const { hasReceivedData, viewingNthCard } = this.props.facecards
+        const { hasReceivedData, viewingNthCard, randomPageNum } = this.props.facecards
         const facecardListOrLoading = hasReceivedData ? 
-        ( facecardsList[viewingNthCard] || 
+        ( facecardsList[randomPageNum >= 0 ? randomPageNum : viewingNthCard] || 
         <div style={{ position: 'relative', top: 250 }}>
             <p>검색결과가 존재하지 않거나 서버와의 연결이 불안정합니다.</p>
-        </div>) : "로딩 중입니다 ...";
+        </div>) : <div style={{ marginTop: 350 }}><LoadingBar /></div>;
         return (
             // map 된 엘리멘트들은 div 로 감싸주지 않으면 invalid react element 에러가 난다.
             <div>

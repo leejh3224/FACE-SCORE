@@ -1,7 +1,7 @@
-import C from "../constants";
-import { database } from "../firebaseApp";
+import C from "../constants"
+import { database } from "../firebaseApp"
 
-const facecardsRef = database.ref("facecards");
+const facecardsRef = database.ref("facecards")
 
 export const listenToFacecards = () => dispatch =>
   facecardsRef.on(
@@ -11,7 +11,7 @@ export const listenToFacecards = () => dispatch =>
         type: C.FACECARDS_RECEIVE_DATA,
         data: snapshot.val()
       })
-  );
+  )
 
 export const submitFacecard = data => (dispatch, getState) => {
   const state = getState();
@@ -21,11 +21,11 @@ export const submitFacecard = data => (dispatch, getState) => {
     username: state.auth.username,
     uid: state.auth.uid,
     createdAt: new Date().toLocaleString(),
-  };
-  dispatch({ type: C.FACECARD_AWAIT_CREATION_RESPONSE });
+  }
+  dispatch({ type: C.FACECARD_AWAIT_CREATION_RESPONSE })
   facecardsRef.push(facecard)
-  dispatch({ type: C.FACECARD_RECEIVE_CREATION_RESPONSE });
-};
+  dispatch({ type: C.FACECARD_RECEIVE_CREATION_RESPONSE })
+}
 
 export const turnToNextCardUnless = end => dispatch => {
   dispatch({ type: C.FACECARD_TURN_NEXT, end })
@@ -33,6 +33,20 @@ export const turnToNextCardUnless = end => dispatch => {
 
 export const turnToPreviousCard = () => dispatch => {
   dispatch({ type: C.FACECARD_TURN_PREVIOUS })
+}
+
+export const turnToRandomPage = mode => (dispatch, getState) => {
+  const state = getState()
+  const getRandomNum = mode => 
+    (max = Object.keys(
+      mode === 'search' ? 
+      state.search.results : state.facecards.data
+    ).length) => Math.floor(Math.random() * max)
+  const randomPageNum = getRandomNum(mode)()
+  
+  dispatch({ type: C.FACECARD_START_LOADING })
+  dispatch({ type: C.FACECARD_SHOW_RANDOM_CARD, randomPageNum })
+  setTimeout(() => dispatch({ type: C.FACECARD_END_LOADING }), 500)
 }
 
 export const startFacecardEdit = qid => dispatch =>
