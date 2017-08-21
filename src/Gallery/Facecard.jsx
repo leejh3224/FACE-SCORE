@@ -103,7 +103,7 @@ class Facecard extends Component {
             })
 
         const starAndScore = listWithScores(allFacecards)
-                            .map((card, index, all) => 
+                            .map(card => 
                                 <Icon 
                                     style={{ position: 'relative', left: '90%' }}
                                     label={ 'star' }

@@ -6,8 +6,7 @@ const initialState = {
   errorMessage: "",
   data: {},
   status: {},
-  viewingNthCard: 0,
-  isLoadingCard: false
+  viewingNthCard: 0
 };
 
 export default (state, action) => {
