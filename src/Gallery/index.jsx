@@ -31,7 +31,7 @@ class Gallery extends Component {
 
         return (
             this.props.auth.uid ?
-            <div className="columns is-mobile">
+            <div className="columns is-mobile" style={{ position: "relative" }}>
                 {/* left nav */}
                 <div className={"column is-2 is-one-quarter-mobile"}>
                     <a 

@@ -41,6 +41,7 @@ class Form extends Component {
             }
             this.textarea.value = ""
             this.url.value = ""
+            this.img.src = ico_preview
         }
     };
 
@@ -50,6 +51,7 @@ class Form extends Component {
         this.props.showToast('success', '수정되었습니다.')
         this.textarea.value = ""
         this.url.value = ""
+        this.img.src = ico_preview
     }
 
     showImage (url) {

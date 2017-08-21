@@ -31,7 +31,7 @@ class Confirm extends Component {
                                 width: 90
                             }}
                         >
-                            예!
+                            예
                         </a>
                         <a 
                             className="button"
@@ -43,7 +43,7 @@ class Confirm extends Component {
                                 width: 90
                             }}
                         >
-                            아니요..
+                            아니요
                         </a>
                     </div>
                 </div>

@@ -70,11 +70,12 @@ class Facecard extends Component {
         } = this.props
 
         const isYourCard = Object.values(search.status === "finished" ? search.results : facecards.data)
+                                 .reverse()
                                  .filter((record, index, records) => 
                                             records[facecards.viewingNthCard].username === auth.username)
                                  .length
 
-        const allFacecards = Object.keys(search.status === "finished" ? search.results : facecards.data)
+        const allFacecards = Object.keys(search.status === "finished" ? search.results : facecards.data).reverse()
 
         const getScoreOfCard = qid =>
             Object.values(userscores.data || {})
