@@ -73,6 +73,12 @@ class Facecard extends Component {
             search
         } = this.props
 
+        const yourScoreOnCard = Object.values(userscores.data || {})
+                                .filter(record => 
+                                    record.qid === Object.keys(search.status === "finished" ? search.results : facecards.data).reverse()[facecards.viewingNthCard] &&
+                                    record.username === auth.username
+                                ).map(record => record.score)                
+
         const isYourCard = Object.values(search.status === "finished" ? search.results : facecards.data)
                                  .reverse()
                                  .filter((record, index, records) => {
@@ -103,13 +109,16 @@ class Facecard extends Component {
             })
 
         const starAndScore = listWithScores(allFacecards)
-                            .map(card => 
-                                <Icon 
-                                    style={{ position: 'relative', left: '90%' }}
-                                    label={ 'star' }
-                                    score={ card.score }
-                                />
-                            )
+                            .map(card => (
+                                <div style={{ position: 'relative' }}>
+                                    <p>{ yourScoreOnCard.length >= 1 ? "나의 점수: " + yourScoreOnCard[0] : "나의 점수: 평가를 기다리는 중 .." }</p>
+                                    <Icon 
+                                        style={{ left: '92%', top: 0 }}
+                                        label={ 'star' }
+                                        score={ card.score }
+                                    />
+                                </div>
+                            ))
         const pageNum = this.props.facecards.viewingNthCard
         return (
             <div>
