@@ -19,14 +19,6 @@ export const submitScore = newScore => (dispatch, getState) => {
     let current
     let currentQid
 
-    const userscore = {
-          username: state.auth.username,
-          uid: state.auth.uid,
-          ratedAt: new Date().toLocaleString(),
-          score: newScore,
-          qid: currentQid
-    }
-
     if (state.search.status === "not searched") {
 
       // gallery shows card in new-to-old order
@@ -38,6 +30,14 @@ export const submitScore = newScore => (dispatch, getState) => {
       // if user is submitting score from search view
       current = Object.keys(state.search.results).length - (1 + state.facecards.viewingNthCard)
       currentQid = Object.keys(state.search.results)[current]   
+    }
+
+    const userscore = {
+          username: state.auth.username,
+          uid: state.auth.uid,
+          ratedAt: new Date().toLocaleString(),
+          score: newScore,
+          qid: currentQid
     }
 
     dispatch({ type: C.USERSCORE_AWAIT_RATING_RESPONSE })
