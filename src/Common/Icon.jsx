@@ -7,7 +7,7 @@ const Icon = props =>
     >
         <a
             style={{
-                color: '#727272'
+                color: "#7d0096"
             }}
             onClick={ props.onClick }
         >
