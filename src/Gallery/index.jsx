@@ -57,7 +57,7 @@ class Gallery extends Component {
                         justifyContent: 'center'
                     }}
                 >
-                    <Facecards />
+                    <Facecards clearSearchBar={ this.props.clearSearchBar } />
                 </div>  
 
                 {/* right nav */}

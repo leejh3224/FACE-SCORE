@@ -82,17 +82,6 @@ export default (state, action) => {
         ...state,
         randomPageNum: action.randomPageNum
       }
-    case C.FACECARD_START_LOADING:
-      return {
-        ...state,
-        isLoadingCard: true,
-        randomPageNum: -1
-      }
-    case C.FACECARD_END_LOADING:
-      return {
-        ...state,
-        isLoadingCard: false
-      }
     case C.FACECARD_EDIT:
       newState = { ...state };
       newState.status[action.qid] = C.FACECARD_EDITING;

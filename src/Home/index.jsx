@@ -101,7 +101,7 @@ class Home extends Component {
                             )
                         case "finished":
                             return (
-                                <Gallery />
+                                <Gallery clearSearchBar={ () => this.searchBar.value = "" } />
                             )
                     }
                 })() }                

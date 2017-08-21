@@ -44,9 +44,7 @@ export const turnToRandomPage = mode => (dispatch, getState) => {
     ).length) => Math.floor(Math.random() * max)
   const randomPageNum = getRandomNum(mode)()
   
-  dispatch({ type: C.FACECARD_START_LOADING })
   dispatch({ type: C.FACECARD_SHOW_RANDOM_CARD, randomPageNum })
-  setTimeout(() => dispatch({ type: C.FACECARD_END_LOADING }), 500)
 }
 
 export const startFacecardEdit = qid => dispatch =>
