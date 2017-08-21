@@ -4,7 +4,7 @@ import { no_results } from '../static'
 
 const NoResults = props =>
     <div>
-        <img src={ no_results } />
+        <img src={ no_results } alt="cat" />
         <h1 className="title is-4 has-text-centered">검색 결과가 없습니다.</h1>
         <h1 className="title is-4 has-text-centered">다시 시도해주세요.</h1>
         <a 

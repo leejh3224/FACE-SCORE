@@ -25,9 +25,9 @@ class Facecards extends Component {
                 />
             ) 
         })
-        const { hasReceivedData, viewingNthCard, randomPageNum } = this.props.facecards
+        const { hasReceivedData, viewingNthCard } = this.props.facecards
         const facecardListOrLoading = hasReceivedData ? 
-        ( facecardsList[randomPageNum >= 0 ? randomPageNum : viewingNthCard] || 
+        ( facecardsList[viewingNthCard] || 
         <div style={{ position: 'relative', height: 400 }}>
             <NoResults 
                 goBack={ () => { 

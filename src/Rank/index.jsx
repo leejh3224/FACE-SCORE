@@ -6,24 +6,25 @@ import RankItems from './RankItems'
 // static
 import { ico_trophy } from '../static'
 
+import '../Global.css'
+
 class Rank extends Component {
     render () {
         return (
             <div>
-                <div
+                <figure
                     style={{ 
                         display: "flex", 
                         marginLeft: "auto",
                         marginRight: "auto",
-                        width: 220,
-                        height: 200
+                        width: 150,
+                        height: 130
                     }}>
                     <img
-                        className="column"
                         src={ ico_trophy } 
                         alt="trophy" 
                     />
-                </div>
+                </figure>
                 <div className="column is-8 is-offset-2">
                     <h1 className="title is-3 line-center-wrapper">
                         <span className="line-center"> 총 별점 </span>

@@ -12,12 +12,18 @@ const RankItems = props =>
 
         {/* first  */}
         <div className="column">
-            <figure className="image" style={{ marginLeft: "auto", marginRight: "auto" }}>
+            <figure 
+                className="image" 
+                style={{ 
+                    marginLeft: "auto", 
+                    marginRight: "auto",
+                    width: 120,
+                    height: 120,
+                }}
+            >
                 <img 
                     src={ ico_rank_first }  
-                    alt="first"
-                    width={200}
-                    height={200} 
+                    alt="first" 
                 />
             </figure>
             <h1 className="title has-text-centered">{ props.username || 'Patrick Lee' }</h1>
@@ -26,12 +32,18 @@ const RankItems = props =>
 
         {/* second  */}
         <div className="column">
-            <figure className="image" style={{ marginLeft: "auto", marginRight: "auto" }}>
+            <figure 
+                className="image" 
+                style={{ 
+                    marginLeft: "auto", 
+                    marginRight: "auto",
+                    width: 120,
+                    height: 120
+                }}
+            >
                 <img 
                     src={ ico_rank_second }  
                     alt="second" 
-                    width={200}
-                    height={200}
                 />
             </figure>
             <h1 className="title has-text-centered">{ props.username || "이준호"}</h1>
@@ -40,12 +52,18 @@ const RankItems = props =>
 
         {/* third  */}
         <div className="column">
-            <figure className="image" style={{ marginLeft: "auto", marginRight: "auto" }}>
+            <figure 
+                className="image" 
+                style={{ 
+                    marginLeft: "auto", 
+                    marginRight: "auto",
+                    width: 120,
+                    height: 120
+                }}
+            >
                 <img 
                     src={ ico_rank_third }  
                     alt="third"
-                    width={200}
-                    height={200}
                 />
             </figure>
             <h1 className="title has-text-centered">{ props.username || "새봄"}</h1>

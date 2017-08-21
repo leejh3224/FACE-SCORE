@@ -32,7 +32,7 @@ class Home extends Component {
                 <nav className="level">
                     <div className="level-item">
                         <p className="subtitle is-5 is-hidden-mobile">
-                            총 <strong>{ Object.keys(this.props.facecards.data).length }</strong> 개의 카드
+                            총 <strong>{ this.props.search.status === "finished" ? Object.keys(this.props.search.results).length : Object.keys(this.props.facecards.data).length }</strong> 개의 카드
                         </p>
                         <div className="field has-addons" style={{ marginLeft: 10 }}>
                             <p style={{ position: 'relative' }} >

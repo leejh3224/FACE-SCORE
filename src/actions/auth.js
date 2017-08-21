@@ -24,7 +24,7 @@ export const openAuth = () => dispatch => {
   auth.signInWithPopup(provider).catch(error => {
     dispatch({
       type: C.FEEDBACK_DISPLAY_ERROR,
-      error: `Login failed! ${error}`
+      error: "로그인 실패!"
     });
     dispatch({ type: C.AUTH_LOGOUT });
   });

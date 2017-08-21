@@ -1,6 +1,8 @@
 import C from "../constants"
 import { database } from "../firebaseApp"
 
+import { showToast } from './toast'
+
 const facecardsRef = database.ref("facecards")
 
 export const listenToFacecards = () => dispatch =>
@@ -23,7 +25,7 @@ export const submitFacecard = data => (dispatch, getState) => {
     createdAt: new Date().toLocaleString(),
   }
   dispatch({ type: C.FACECARD_AWAIT_CREATION_RESPONSE })
-  facecardsRef.push(facecard)
+  facecardsRef.push(facecard, error => error ? showToast("warning", "에러가 발생했습니다.") : null)
   dispatch({ type: C.FACECARD_RECEIVE_CREATION_RESPONSE })
 }
 
@@ -74,7 +76,7 @@ export const deleteFacecard = qid => dispatch => {
   dispatch({ type: C.FACECARD_EDIT_SUBMIT, qid })
   facecardsRef.child(qid).remove(() => {
     dispatch({ type: C.FACECARD_EDIT_FINISH, qid })
-  })
+  }, error => error ? showToast("warning", "에러가 발생했습니다.") : null)
 }
 
 

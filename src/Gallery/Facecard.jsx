@@ -76,9 +76,7 @@ class Facecard extends Component {
         const isYourCard = Object.values(search.status === "finished" ? search.results : facecards.data)
                                  .reverse()
                                  .filter((record, index, records) => {
-                                        return facecards.randomPageNum !== -1 ?
-                                        records[facecards.randomPageNum].username === auth.username :
-                                        records[facecards.viewingNthCard].username === auth.username
+                                        return records[facecards.viewingNthCard].username === auth.username
                                  })
                                   .length
 
@@ -112,7 +110,7 @@ class Facecard extends Component {
                                     score={ card.score }
                                 />
                             )
-        const pageNum = this.props.facecards.randomPageNum !== -1 ? this.props.facecards.randomPageNum : this.props.facecards.viewingNthCard
+        const pageNum = this.props.facecards.viewingNthCard
         return (
             <div>
             { !this.props.facecards.isLoadingCard ? 
@@ -143,14 +141,17 @@ class Facecard extends Component {
                             </div>
                             <nav 
                                 className="level" 
-                                style={{ position: "relative", width: 50, height: 32, paddingBottom: 3, marginLeft: "auto" }}
+                                style={{ position: "relative", width: 50, paddingBottom: 3, top: 10, marginLeft: "auto" }}
                             >
                                 <div className="level-item">
                                     <Icon 
                                         label={'random'} 
                                         onClick={ () => {
                                             let mode = this.props.search.status === "not searched" ? "gallery" : "search"
-                                            return this.props.turnToRandomPage(mode) 
+                                            this.props.turnToRandomPage(mode)
+                                            if (Object.keys(this.props.search.results).length === 1) {
+                                                this.props.showToast("warning", "검색결과가 1개입니다.")
+                                            }
                                         } }
                                     />
                                 </div>

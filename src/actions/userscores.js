@@ -1,5 +1,6 @@
 import C from "../constants";
 import { database } from "../firebaseApp";
+import { showToast } from './toast'
 
 const userscoresRef = database.ref("userscores")
 
@@ -55,16 +56,15 @@ export const submitScore = newScore => (dispatch, getState) => {
                                             .length >= 1
 
                     if (!haveRated) {
-                      userscoresRef.push(userscore)
+                      userscoresRef.push(userscore, error => error ? showToast("warning", "에러가 발생했습니다.") : null)
                     } else {
                       const oldRecord = userscoresRef.child(`${Object.keys(snapshot.val())[0]}`)
                       oldRecord.update({
                         score: newScore
-                      })
+                      }, error => error ? showToast("warning", "에러가 발생했습니다.") : null)
                     }
-                  }
-                    
-                  )
+                  }        
+                )
     dispatch({ type: C.USERSCORE_RECEIVE_RATING_RESPONSE });
 }
 
@@ -76,7 +76,8 @@ export const deleteScore = qid => dispatch => {
                   snapshot => 
                     snapshot.val() ? 
                       snapshot.forEach(
-                        data => data.ref.remove(() => dispatch({ type: C.USERSCORE_EDIT_FINISH, qid }))
+                        data => data.ref.remove(
+                          () => dispatch({ type: C.USERSCORE_EDIT_FINISH, qid }), error => error ? showToast("warning", "에러가 발생했습니다.") : null)
                       ) : null
                 )
 }
