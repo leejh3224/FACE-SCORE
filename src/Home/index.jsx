@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import {
+  Link
+} from 'react-router-dom'
 
 // components
 import Gallery from '../Gallery'
@@ -15,7 +18,9 @@ import {
 } from '../actions/search'
 
 // static
-import { lunatic_sky } from '../static'
+import { 
+    lunatic_sky
+} from '../static'
 
 // css
 import '../Global.css'
@@ -64,35 +69,96 @@ class Home extends Component {
                     switch (this.props.search.status) {
                         default:
                             return (
-                                <div
-                                    className="column is-8 is-offset-2"
-                                    style={{ 
-                                        backgroundImage: `url(${ lunatic_sky })`,
-                                        height: 500,
-                                        backgroundRepeat: 'no-repeat',
-                                        backgroundSize: 'cover',
-                                        borderRadius: 5,
-                                        display: 'flex',
-                                        flexDirection: 'column',
-                                        alignContent: 'center',
-                                        justifyContent: 'center'
-                                    }}
-                                >
-                                    <h1 className="title is-5 has-text-centered has-text-white">
-                                        FACESCORE 는 카드를 공유하고 서로 평가하는 공간입니다.
-                                    </h1>
-                                    <h1 className="title is-5 has-text-centered has-text-white">
-                                        카드를 업로드하고,
-                                    </h1>
-                                    <h1 className="title is-5 has-text-centered has-text-white">
-                                        카드를 관리하고,
-                                    </h1>
-                                    <h1 className="title is-5 has-text-centered has-text-white">
-                                        카드를 평가하고,
-                                    </h1>
-                                    <h1 className="title is-5 has-text-centered has-text-white">
-                                        랭킹을 확인하세요
-                                    </h1>
+                                <div>
+                                    <section
+                                        className="column is-12"
+                                        style={{ 
+                                            backgroundImage: `url(${ lunatic_sky })`,
+                                            height: "75vh",
+                                            width: "100vw",
+                                            backgroundRepeat: 'no-repeat',
+                                            backgroundSize: "cover",
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            alignContent: 'center',
+                                            justifyContent: 'center',
+                                            fontFamily: "Sniglet, monospace", 
+                                            fontSize: 40
+                                        }}
+                                    >
+                                        <div 
+                                            style={{ 
+                                                width: "100%", 
+                                                height: "100%",
+                                                borderRadius: 5,
+                                                display: "flex",
+                                                flexDirection: "column",
+                                                justifyContent: "center",
+                                                margin: "auto",
+                                                overflow: "hidden"
+                                            }} 
+                                        >
+                                            <h1 className="title is-2 has-text-centered has-text-white">
+                                                PYPUZ
+                                            </h1>
+                                            <h1 className="subtitle is-4 has-text-centered has-text-white">
+                                                Pick for You, Pick for Us
+                                            </h1>
+                                            <Link to="/Form">
+                                                <a 
+                                                    className="button"
+                                                    style={{
+                                                        display: "block",
+                                                        width: 180,
+                                                        marginLeft: "auto",
+                                                        marginRight: "auto",
+                                                        background: '#6d2cf9',
+                                                        color: 'white',
+                                                        borderStyle: "none"
+                                                    }}
+                                                >
+                                                    사진 올리러 가기
+                                                </a>
+                                            </Link>
+                                        </div>
+                                    </section>
+                                    <footer 
+                                        style={{ 
+                                            backgroundColor: "#371249",
+                                            width: "100vw",
+                                            height: "10vh",
+                                        }}
+                                    >
+                                        <nav className="breadcrumb is-centered" aria-label="breadcrumbs" style={{ marginBottom: -10 }}>
+                                            <ul>
+                                                <li>
+                                                    <Link 
+                                                        className="nav-item has-text-white"
+                                                        to="/terms"
+                                                    >
+                                                        Terms/Conditions
+                                                    </Link>
+                                                </li>
+                                                <li>
+                                                     <Link 
+                                                        className="nav-item has-text-white"
+                                                        to="#"
+                                                    >
+                                                        About
+                                                    </Link>
+                                                </li>
+                                                <li>
+                                                     <Link 
+                                                        className="nav-item has-text-white"
+                                                        to="#"
+                                                    >
+                                                        Contact
+                                                    </Link>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                        <p className="has-text-right has-text-white" style={{ paddingRight: 20 }}>Copyright 2017. PYPUZ, all rights reserved.</p>
+                                    </footer>
                                 </div>
                             )
                         case "searching":

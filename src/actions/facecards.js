@@ -76,7 +76,7 @@ export const deleteFacecard = qid => dispatch => {
   dispatch({ type: C.FACECARD_EDIT_SUBMIT, qid })
   facecardsRef.child(qid).remove(() => {
     dispatch({ type: C.FACECARD_EDIT_FINISH, qid })
-  }, error => error ? showToast("warning", "에러가 발생했습니다.") : null)
+  })
 }
 
 

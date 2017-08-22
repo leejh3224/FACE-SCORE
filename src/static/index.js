@@ -14,6 +14,7 @@ import * as ico_rank_third from './ico_rank_third.svg'
 import * as ico_preview from './ico_preview.ico'
 import * as not_found from './not_found.png'
 import * as no_results from './no_results.gif'
+import Terms from './Terms'
 
 export { 
     img_person, 
@@ -31,5 +32,6 @@ export {
     ico_rank_third,
     ico_preview,
     not_found,
-    no_results
+    no_results,
+    Terms
 }

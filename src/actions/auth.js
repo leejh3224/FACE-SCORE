@@ -22,10 +22,7 @@ export const openAuth = () => dispatch => {
   dispatch({ type: C.AUTH_OPEN });
   const provider = new firebase.auth.FacebookAuthProvider();
   auth.signInWithPopup(provider).catch(error => {
-    dispatch({
-      type: C.FEEDBACK_DISPLAY_ERROR,
-      error: "로그인 실패!"
-    });
+    if (error) { console.log(error) }
     dispatch({ type: C.AUTH_LOGOUT });
   });
 };

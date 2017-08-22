@@ -81,7 +81,7 @@ class WelcomeModal extends Component {
                                         fontWeight: "bolder"
                                     }}
                                 >
-                                    니 얼굴 좀 그래 ..
+                                    피퍼즈를 경험해보세요.
                                 </h1>
                                 <h2 
                                     className="subtitle is-6 has-text-centered"
@@ -89,7 +89,7 @@ class WelcomeModal extends Component {
                                         marginBottom: 30
                                     }}
                                 >
-                                    울지 말고 평가나 받자
+                                    너의 사진, 모두의 사진, 피퍼즈
                                 </h2>
                             </div>
                             <Auth />
@@ -100,7 +100,7 @@ class WelcomeModal extends Component {
                                         fontSize: 7
                                     }}
                                 >
-                                    계속 진행하면 FaceScore 서비스 약관, 개인정보
+                                    계속 진행하면 Pypuz 서비스 약관, 개인정보
                                 </p>
                                 <p 
                                     className="subtitle has-text-centered"

@@ -25,7 +25,8 @@ import {
   ico_plus,
   ico_profile,
   ico_star,
-  img_logo
+  img_logo,
+  Terms
 } from './static'
 
 class Page extends Component {
@@ -53,7 +54,7 @@ class Page extends Component {
               to="/"
             >
               <img src={ img_logo } id="logo" alt="logo" />
-              <div className="nav-item is-hidden-mobile">FACESCORE</div>
+              <div className="nav-item is-hidden-mobile">PYPUZ</div>
             </Link>
             <Link 
               className="nav-item icon-grow"
@@ -86,6 +87,7 @@ class Page extends Component {
           <Route path="/Profile" component={Profile} />
           <Route path="/Gallery" component={Gallery} />
           <Route path="/Rank" component={Rank} />
+          <Route path="/terms" component={Terms} />
         </div>
       </Router>
     )

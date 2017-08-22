@@ -81,26 +81,26 @@ class Form extends Component {
                         borderRadius: 10
                     }}
                 >
-                        {/* Image Uploader */}
-                        <input 
-                            className="input" 
-                            type="text" 
-                            placeholder="이미지 주소를 넣어주세요."
-                            onChange={ event => this.showImage(event.target.value) }
-                            ref={ url => this.url = url }
-                            defaultValue={ qidOfCardEditing ? this.props.url : "" }
-                            style={{
-                                marginBottom: "20px"
-                            }}
-                        />          
-                        <figure className="image" style={{ width: 'auto', height: 'auto' }}>
-                            <img 
-                                src={ this.props.url ? this.props.url : ico_preview }
-                                ref={ img => this.img = img }
-                                style={{ paddingLeft: 15 }}
-                                alt="미리보기"
-                            />
-                        </figure>
+                    {/* Image Uploader */}
+                    <input 
+                        className="input" 
+                        type="text" 
+                        placeholder="이미지 주소를 넣어주세요."
+                        onChange={ event => this.showImage(event.target.value) }
+                        ref={ url => this.url = url }
+                        defaultValue={ qidOfCardEditing ? this.props.url : "" }
+                        style={{
+                            marginBottom: "20px"
+                        }}
+                    />          
+                    <figure className="image" style={{ width: 'auto', height: 'auto' }}>
+                        <img 
+                            src={ this.props.url ? this.props.url : ico_preview }
+                            ref={ img => this.img = img }
+                            style={{ paddingLeft: 15 }}
+                            alt="미리보기"
+                        />
+                    </figure>
 
                     {/* Body */}
                     <div className="card-content">

@@ -40,9 +40,6 @@ class Rank extends Component {
                 }
             )
         }
-
-        console.log(totalScoreAndAvg)
-
         return (
             <div>
                 <figure
