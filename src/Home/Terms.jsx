@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Terms = () => 
     <div className="column is-8 is-offset-2">
@@ -48,6 +49,24 @@ const Terms = () =>
         <h2>Contact Us</h2>
 
         <p>If you have any questions about these Terms, please contact us.</p>
+
+        <Link to="/Home">
+            <a 
+                className="button"
+                style={{
+                    display: "block",
+                    width: 180,
+                    marginLeft: "auto",
+                    marginRight: "auto",
+                    background: '#6d2cf9',
+                    color: 'white',
+                    borderStyle: "none",
+                    marginTop: 30
+                }}
+            >
+                돌아가기
+            </a>
+        </Link>
     </div>
 
 export default Terms

@@ -4,8 +4,7 @@ import Slider, { createSliderWithTooltip } from 'rc-slider'
 
 // components
 import { 
-    Icon,
-    LoadingBar 
+    Icon
 } from '../Common'
 
 // actions
@@ -122,7 +121,6 @@ class Facecard extends Component {
         const pageNum = this.props.facecards.viewingNthCard
         return (
             <div>
-            { !this.props.facecards.isLoadingCard ? 
                 <div 
                     className="card" 
                     style={{ 
@@ -225,7 +223,7 @@ class Facecard extends Component {
                             점수주기
                         </a>
                     </footer>
-                </div> : <div style={{ marginTop: 350 }}><LoadingBar /></div> }
+                </div>
             </div>
         )
     }

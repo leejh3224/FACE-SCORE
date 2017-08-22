@@ -14,7 +14,8 @@ import {
 // static
 import { 
     ico_submit,
-    ico_preview
+    ico_preview,
+    not_found
 } from '../static'
 
 class Form extends Component {
@@ -99,6 +100,7 @@ class Form extends Component {
                             ref={ img => this.img = img }
                             style={{ paddingLeft: 15 }}
                             alt="미리보기"
+                            onError={ () => this.img.src = not_found }
                         />
                     </figure>
 

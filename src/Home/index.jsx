@@ -105,7 +105,7 @@ class Home extends Component {
                                                 Pick for You, Pick for Us
                                             </h1>
                                             <Link to="/Form">
-                                                <a 
+                                                <div 
                                                     className="button"
                                                     style={{
                                                         display: "block",
@@ -118,7 +118,7 @@ class Home extends Component {
                                                     }}
                                                 >
                                                     사진 올리러 가기
-                                                </a>
+                                                </div>
                                             </Link>
                                         </div>
                                     </section>
@@ -134,7 +134,7 @@ class Home extends Component {
                                                 <li>
                                                     <Link 
                                                         className="nav-item has-text-white"
-                                                        to="/terms"
+                                                        to="/Terms"
                                                     >
                                                         Terms/Conditions
                                                     </Link>
@@ -142,7 +142,7 @@ class Home extends Component {
                                                 <li>
                                                      <Link 
                                                         className="nav-item has-text-white"
-                                                        to="#"
+                                                        to="/About"
                                                     >
                                                         About
                                                     </Link>
@@ -150,7 +150,7 @@ class Home extends Component {
                                                 <li>
                                                      <Link 
                                                         className="nav-item has-text-white"
-                                                        to="#"
+                                                        to="/Contact"
                                                     >
                                                         Contact
                                                     </Link>

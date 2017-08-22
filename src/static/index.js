@@ -11,10 +11,9 @@ import * as ico_trophy from './ico_trophy.jpg'
 import * as ico_rank_first from './ico_rank_first.svg'
 import * as ico_rank_second from './ico_rank_second.svg'
 import * as ico_rank_third from './ico_rank_third.svg'
-import * as ico_preview from './ico_preview.ico'
+import * as ico_preview from './ico_preview.png'
 import * as not_found from './not_found.png'
 import * as no_results from './no_results.gif'
-import Terms from './Terms'
 
 export { 
     img_person, 
@@ -32,6 +31,5 @@ export {
     ico_rank_third,
     ico_preview,
     not_found,
-    no_results,
-    Terms
+    no_results
 }

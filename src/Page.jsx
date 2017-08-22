@@ -7,17 +7,17 @@ import {
 import { connect } from 'react-redux'
 
 // components
-import Home from './Home'
-import Gallery from './Gallery'
-import Form from './Form'
-import Rank from './Rank'
-import Profile from './Profile'
-import WelcomeModal from './Welcome'
+import Terms from './Home/Terms'
+import About from './Home/About'
+import Contact from './Home/Contact'
+
 import { 
   Toast,
   Confirm,
   Modal 
 } from './Common'
+
+import asyncComponent from './asyncComponent'
 
 // static
 import {
@@ -25,9 +25,15 @@ import {
   ico_plus,
   ico_profile,
   ico_star,
-  img_logo,
-  Terms
+  img_logo
 } from './static'
+
+const Home = asyncComponent(() => import('./Home').then(module => module.default), { name: 'Home' })
+const Form = asyncComponent(() => import('./Form').then(module => module.default), { name: 'Form' })
+const Gallery = asyncComponent(() => import('./Gallery').then(module => module.default), { name: 'Gallery' })
+const Rank = asyncComponent(() => import('./Rank').then(module => module.default), { name: 'Rank' })
+const Profile = asyncComponent(() => import('./Profile').then(module => module.default), { name: 'Profile' })
+const WelcomeModal = asyncComponent(() => import('./Welcome').then(module => module.default), { name: 'Welcome' })
 
 class Page extends Component {
 
@@ -87,7 +93,9 @@ class Page extends Component {
           <Route path="/Profile" component={Profile} />
           <Route path="/Gallery" component={Gallery} />
           <Route path="/Rank" component={Rank} />
-          <Route path="/terms" component={Terms} />
+          <Route path="/Terms" component={Terms} />
+          <Route path="/About" component={About} />
+          <Route path="/Contact" component={Contact} /> 
         </div>
       </Router>
     )

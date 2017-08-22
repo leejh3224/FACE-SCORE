@@ -11,11 +11,15 @@ import { listenToUserscores } from '../actions/userscores'
 
 // static
 import { 
-    img_person,
-    txt_facescore
+    img_person
 } from '../static'
 
 class WelcomeModal extends Component {
+    componentWillUnmount () {
+        this.props.listenToAuth()
+        this.props.listenToFacecards()
+        this.props.listenToUserscores()
+    }
     render () {
         if (this.props.auth.status === 'AUTH_LOGGED_IN') {
             this.props.history.push('/Home')
@@ -29,14 +33,13 @@ class WelcomeModal extends Component {
                         style={{
                             display: 'flex',
                             justifyContent: 'center',
-                            alignContent: 'center'
+                            alignContent: 'center',
                         }}
                     >
                         <div 
                             style={{
-                                minWidth: 350,
-                                maxWidth: 450,
-                                height: 'auto',
+                                minWidth: 250,
+                                maxWidth: 350,
                                 backgroundColor: '#fff',
                                 display: 'flex',
                                 justifyContent: 'center',
@@ -51,21 +54,10 @@ class WelcomeModal extends Component {
                                     alt="person" 
                                     style={{
                                         borderTopLeftRadius: 10,
-                                        borderTopRightRadius: 10
+                                        borderTopRightRadius: 10,
+                                        marginBottom: "2%",
+                                        height: 200
                                     }}
-                                />
-                            </figure>
-                            <figure 
-                                className="image"
-                                style={{ 
-                                    width: 150, 
-                                    height: 50,
-                                    margin: '5% 0% 5% 33%' 
-                                }}
-                            >
-                                <img 
-                                    src={ txt_facescore } 
-                                    alt="logo" 
                                 />
                             </figure>
                             <div 
@@ -86,14 +78,14 @@ class WelcomeModal extends Component {
                                 <h2 
                                     className="subtitle is-6 has-text-centered"
                                     style={{
-                                        marginBottom: 30
+                                        marginBottom: "2%"
                                     }}
                                 >
                                     너의 사진, 모두의 사진, 피퍼즈
                                 </h2>
                             </div>
                             <Auth />
-                            <div style={{ marginTop: 10, marginBottom: 50 }}>
+                            <div style={{ marginTop: "1%", marginBottom: "3%" }}>
                                 <p 
                                     className="subtitle has-text-centered"
                                     style={{
@@ -106,7 +98,7 @@ class WelcomeModal extends Component {
                                     className="subtitle has-text-centered"
                                     style={{
                                         fontSize: 7,
-                                        marginTop: -15
+                                        marginTop: "-2%"
                                     }}
                                 >
                                     보호정책에 동의하는 것으로 간주됩니다.
