@@ -16,3 +16,8 @@ patch:
         patched: '2019-07-03T22:09:53.126Z'
     - jest > jest-cli > jest-runner > jest-runtime > jest-config > jest-environment-jsdom > jsdom > request-promise-native > request-promise-core > lodash:
         patched: '2019-07-03T22:09:53.126Z'
+  SNYK-JS-HTTPSPROXYAGENT-469131:
+    - next > glob-promise > semantic-release > github > https-proxy-agent:
+        patched: '2019-10-03T22:09:32.408Z'
+    - next > glob-promise > semantic-release > @semantic-release/condition-travis > github > https-proxy-agent:
+        patched: '2019-10-03T22:09:32.408Z'
