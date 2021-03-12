@@ -35,7 +35,7 @@
     "rc-slider": "^8.3.1",
     "react": "^15.6.1",
     "react-addons-css-transition-group": "^15.6.0",
-    "react-dev-utils": "^3.1.2",
+    "react-dev-utils": "^11.0.4",
     "react-dom": "^15.6.1",
     "react-error-overlay": "^1.0.10",
     "react-loadable": "^4.0.4",
