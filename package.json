@@ -48,15 +48,15 @@
     "webpack-dev-server": "3.1.11",
     "webpack-manifest-plugin": "1.2.1",
     "whatwg-fetch": "2.0.3",
-    "snyk": "^1.189.0"
+    "@snyk/protect": "latest"
   },
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "dev": "next",
-    "snyk-protect": "snyk protect",
-    "prepublish": "npm run snyk-protect"
+    "snyk-protect": "snyk-protect",
+    "prepublish": "yarn run snyk-protect"
   },
   "devDependencies": {
     "firebase": "^4.2.0",
